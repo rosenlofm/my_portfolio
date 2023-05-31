@@ -1,6 +1,6 @@
 /* Global */
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:whgt@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
   --bgcolor: white;
@@ -47,6 +47,8 @@ img {
   /* margin-left: auto;
     margin-right: auto; */
   margin-inline: auto;
+
+  padding-block: 10px;
 }
 
 .button-link {
@@ -112,6 +114,14 @@ footer a {
 
 /* Header */
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  border-bottom: solid gray 1px;
+}
+
 header .container {
   display: flex;
   justify-content: space-between;
@@ -154,10 +164,25 @@ nav a:not(.button-link) {
     position: absolute;
     top: 1.5rem;
     right: 2rem;
+    z-index: 99999;
   }
 
   nav ul {
     display: none;
+  }
+
+  nav.open ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--bgcolor-dark);
+    width: 100vw;
+    height: 100vh;
+    z-index: 99998;
+
+    position: fixed;
+    inset: 0;
   }
 }
 
@@ -168,6 +193,14 @@ nav a:not(.button-link) {
   /* padding-top: 100px;
   padding-bottom: 100px; */
   padding-block: 100px;
+
+  background: linear-gradient(
+    to right,
+    rgb(255, 0, 0, 0.799),
+    rgb(0, 0, 255, 0.799) /*
+    url("project.jpg") */
+  );
+  background-size: cover;
 }
 
 #intro .container > * {
@@ -211,6 +244,11 @@ h1 {
 .grid-container img {
   aspect-ratio: 1.4;
   object-fit: cover;
+}
+
+/* Selects every paragraph which has <br> immediately after it */
+p:has(+ br) {
+  border: solid rgb(85, 82, 82) 2px;
 }
 
 /* Pseudo Element */
