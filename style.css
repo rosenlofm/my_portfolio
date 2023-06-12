@@ -13,6 +13,9 @@
 
   --blue: rgb(74, 174, 255);
   --blue-muted: rgba(74, 174, 255, 0.2);
+
+  --purple: rgb(188, 91, 188);
+  --purple-muted: rgba(86, 12, 86, 0.25);
 }
 
 * {
@@ -40,8 +43,17 @@ a {
   text-decoration: none;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 img {
   width: 100%;
+}
+
+h3 {
+  margin-inline: block;
 }
 
 .container {
@@ -241,18 +253,40 @@ h1 {
   padding: 14px 20px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: max-content auto max-content;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: max-content auto max-content max-content;
   gap: 10px 30px;
 
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
 }
 
-.repo-info h3,
+/* a {
+  border: solid red 10px;
+} */
+
+.repo-info ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-info ul[id^="language"] li {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--blue);
+  background-color: var(--blue-muted);
+  /* display: inline-block; */
+  justify-self: start;
+  padding: 5px 11px;
+  border-radius: 30px;
+}
+
+/* .repo-info h3,
 .repo-info p.desc {
   grid-column: 1 / 3;
-}
+} */
 
 .repo-info h3 {
   font-family: monospace;
@@ -264,17 +298,6 @@ h1 {
 .repo-info p.desc {
   margin-bottom: 10px;
   font-size: 14px;
-}
-
-.repo-info p.language {
-  font-size: 12px;
-  text-transform: uppercase;
-  color: var(--blue);
-  background-color: var(--blue-muted);
-  /* display: inline-block; */
-  justify-self: start;
-  padding: 5px 11px;
-  border-radius: 30px;
 }
 
 .repo-info a {
@@ -314,6 +337,14 @@ h1 {
 .grid-container img {
   aspect-ratio: 1.4;
   object-fit: cover;
+  border: solid white 1px;
+
+  /* x, y, blur, spread, color */
+  box-shadow: -0 0 10px 0 rgb(0, 0, 0, 0.25);
+}
+
+.grid-container h3 {
+  margin-block: 30px;
 }
 
 /* Selects every paragraph which has <br> immediately after it */
@@ -335,6 +366,32 @@ article h3::after {
   background-color: var(--primary);
   bottom: -10px;
   left: 0;
+}
+
+/* add lists to html */
+/* style to look like github tags */
+/* add variables for purple & purple muted */
+/* change background color/border & text color */
+
+/* Separate styling & structure */
+
+article ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 20px;
+}
+
+article li {
+  font-size: 12px;
+  color: var(--purple);
+  text-transform: uppercase;
+
+  padding: 5px 11px;
+  border: var(--purple-muted) solid 1px;
+  border-radius: 30px;
 }
 
 /* Footer */
