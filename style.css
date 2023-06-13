@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding: 40px;
 }
 
 body {
@@ -73,6 +74,7 @@ h3 {
 
   width: min(70rem, 100% - 4rem);
   margin-inline: auto;
+  flex-wrap: wrap;
 }
 
 @media (min-width: 50rem) {
@@ -81,6 +83,7 @@ h3 {
     /* width: calc(100% - 200px);
       max-width: 1000px; */
     width: min(70rem, 100% - 8rem);
+    flex-wrap: wrap;
     /* margin-left: auto;
       margin-right: auto; */
     margin-inline: auto;
@@ -314,6 +317,8 @@ h1 {
   font-size: 18px;
   font-weight: 600;
   text-transform: lowercase;
+
+  hyphens: auto;
 }
 
 .repo-info p.desc {
@@ -328,12 +333,17 @@ h1 {
 
 /* Skills */
 
+/* #skills {
+  padding-block: 40px 20px;
+} */
+
 #skills ul {
   list-style: none;
   margin: 0;
   padding: 0;
 
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
 }
 
@@ -359,11 +369,21 @@ h1 {
 
 /* Portfolio */
 
+#portfolio {
+  padding-block: 40px 80px;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   /* grid-template-columns: minmax(0, 1fr); */
   gap: 40px;
+}
+
+@media (min-width: 30rem) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
 
 .grid-container img {
@@ -426,6 +446,45 @@ article li {
   border-radius: 30px;
 }
 
+/* CTA */
+
+#cta .container {
+  background-color: var(--primary);
+
+  padding: 40px 60px 50px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 10px 10px rgb(0, 0, 0, 0.9);
+
+  margin-bottom: -80px;
+  position: relative;
+}
+
+#cta img {
+  width: 60px;
+}
+
+#cta a {
+  display: inline-flex;
+  background-color: white;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: var(--purple) solid 2px;
+
+  color: var(--purple);
+  font-weight: 600;
+  margin-inline: 4px;
+  margin-top: 20px;
+}
+
+#cta i {
+  color: rgb(0, 128, 255);
+  font-size: 20px;
+}
+
 /* Footer */
 
 footer * {
@@ -438,7 +497,8 @@ footer .container {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  padding-block: 10px;
+
+  padding-block: 140px 50px;
 }
 
 /* Menu Toggle */
