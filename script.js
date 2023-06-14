@@ -62,7 +62,9 @@ fetch("https://api.github.com/users/rosenlofm/repos")
           Object.keys(languagesData).forEach((language) => {
             const newLanguageEl = document.createElement("li");
             newLanguageEl.textContent = language;
-            languagesList.appendChild(newLanguageEl);
+            if (languagesList.children.length < 4) {
+              languagesList.appendChild(newLanguageEl);
+            }
           });
         });
     }
