@@ -438,6 +438,7 @@ h1 + p {
 /* Portfolio */
 
 #portfolio {
+  background-color: var(--bgcolor);
   padding-block: 40px 80px;
 }
 
